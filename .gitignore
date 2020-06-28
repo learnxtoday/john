@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / cache files
+__pycache__/
+*.log
+*.pyc
+
+# vim swap files
+*.swp
+
+# Environments
+.env
+env/

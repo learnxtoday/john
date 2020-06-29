@@ -7,11 +7,13 @@ from subprocess import check_output
 from random import randint
 
 latestCommitCommand = " git log -1 --pretty='%ar : %an : %s - %h'"
+latestCommitHash = " git log -1 --pretty='%h'"
 commitStatsCommand = "git ls-files | xargs cat | wc -l"
 commitMessageCommand = "git log -1 --pretty=%B"
 
 
 latestCommit = check_output(['bash','-c', latestCommitCommand])
+commitID = check_output(['bash','-c', latestCommitHash])
 commitStats = check_output(['bash','-c', commitStatsCommand])
 commitMessage = check_output(['bash','-c', commitMessageCommand])
 
@@ -43,7 +45,7 @@ statusList = ["Commit early, commit often. A tip for version controlling, not fo
 # initialize api
 api = create_api()
 
-tweet = '%s P2#TLC: %s \n#GitCommitShow #CommitEveryday' % (statusList[randint(0, 16)] , commitStats)
+tweet = '[%s] %s P2#TLC: %s \n#GitCommitShow #CommitEveryday' % (commitID.decode('UTF-8'), statusList[randint(0, 16)] , commitStats.decode('UTF-8'))
 
 api.update_status(tweet)
 

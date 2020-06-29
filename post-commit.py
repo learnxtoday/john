@@ -40,6 +40,9 @@ statusList = ["Commit early, commit often. A tip for version controlling, not fo
         ]
 
 
+# initialize api
+api = create_api()
+
 tweet = '%s P2#TLC: %s \n#GitCommitShow #CommitEveryday' % (statusList[randint(0, 16)] , commitStats)
 
 api.update_status(tweet)

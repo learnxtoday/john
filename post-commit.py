@@ -21,6 +21,7 @@ base = check_output(['bash', '-c', basename])
 # print("Good job! Latest commit is :" + str(latestCommit))
 commitID = commitID.decode('UTF-8').rstrip("\n")
 commitStats = commitStats.decode('UTF-8')
+base = base.decode('UTF-8').rstrip("\n")
 
 
 statusList = ["Commit early, commit often. A tip for version controlling, not for relationships! ",

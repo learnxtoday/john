@@ -10,12 +10,13 @@ latestCommitCommand = " git log -1 --pretty='%ar : %an : %s - %h'"
 latestCommitHash = " git log -1 --pretty='%h'"
 commitStatsCommand = "git ls-files | xargs cat | wc -l"
 commitMessageCommand = "git log -1 --pretty=%B"
+basename = "basename `pwd`"
 
-
-latestCommit = check_output(['bash','-c', latestCommitCommand])
-commitID = check_output(['bash','-c', latestCommitHash])
-commitStats = check_output(['bash','-c', commitStatsCommand])
-commitMessage = check_output(['bash','-c', commitMessageCommand])
+latestCommit = check_output(['bash', '-c', latestCommitCommand])
+commitID = check_output(['bash', '-c', latestCommitHash])
+commitStats = check_output(['bash', '-c', commitStatsCommand])
+commitMessage = check_output(['bash', '-c', commitMessageCommand])
+base = check_output(['bash', '-c', basename])
 
 # print("Good job! Latest commit is :" + str(latestCommit))
 commitID = commitID.decode('UTF-8').rstrip("\n")
@@ -47,7 +48,7 @@ statusList = ["Commit early, commit often. A tip for version controlling, not fo
 # initialize api
 api = create_api()
 
-tweet = '[%s]\n%s\nP2#TLC: %s\n#GitCommitShow #CommitEveryday #100DaysOfCode #thenerdsuperuser #loopsync' % (commitID, statusList[randint(0, 16)] , commitStats)
+tweet = '[%s]\n%s\n%s#TLC: %s\n#CommitEveryday #100DaysOfCode #thenerdsuperuser #loopsync' % (commitID, statusList[randint(0, 16)], base, commitStats)
 
 api.update_status(tweet)
 

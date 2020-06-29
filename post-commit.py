@@ -82,7 +82,7 @@ if FLAG == 1:
             "The only true wisdom is in knowing you know nothing.",
             ]
 
-    tweet = '[%s]\n%s\n%s#TLC: %s\n#CommitEveryday #100DaysOfCode #thenerdsuperuser #loopsync' % (commitID, statusList[randint(0, 16)], base, commitStats)
+    tweet = '[%s]\n%s\n%s#TLC: %s\n#CommitEveryday #100DaysOfCode #CodeHabit365 #thenerdsuperuser #loopsync' % (commitID, statusList[randint(0, 16)], base, commitStats)
 
     # print(tweet)
     api.update_status(tweet)

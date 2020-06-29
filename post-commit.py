@@ -18,12 +18,14 @@ commitStats = check_output(['bash','-c', commitStatsCommand])
 commitMessage = check_output(['bash','-c', commitMessageCommand])
 
 print("Good job! Latest commit is :" + str(latestCommit))
+commitID = commitID.decode('UTF-8').rstrip("\n")
+commitStats = commitStats.decode('UTF-8')
 
 
 statusList = ["Commit early, commit often. A tip for version controlling, not for relationships! ",
         "Strive for continuous improvement, instead of perfection.",
         "The biggest room in the world is the room for improvement.",
-        "It does not matter how slowly you go as long as you do not stop.",		
+        "It does not matter how slowly you go as long as you do not stop.",
         "The pursuit of mastery",
         "It always seems impossible until it's done.",
         "With the new commit comes improvement in user experience.",
@@ -45,7 +47,7 @@ statusList = ["Commit early, commit often. A tip for version controlling, not fo
 # initialize api
 api = create_api()
 
-tweet = '[%s] %s P2#TLC: %s \n#GitCommitShow #CommitEveryday' % (commitID.decode('UTF-8'), statusList[randint(0, 16)] , commitStats.decode('UTF-8'))
+tweet = '[%s]\n %s P2#TLC: %s \n#GitCommitShow #CommitEveryday #100DaysOfCode #thenerdsuperuser' % (commitID, statusList[randint(0, 16)] , commitStats)
 
 api.update_status(tweet)
 

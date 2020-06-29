@@ -1,4 +1,5 @@
 autopep8
+docopt
 jedi
 python-dotenv
 requests

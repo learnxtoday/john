@@ -17,7 +17,7 @@ commitID = check_output(['bash','-c', latestCommitHash])
 commitStats = check_output(['bash','-c', commitStatsCommand])
 commitMessage = check_output(['bash','-c', commitMessageCommand])
 
-print("Good job! Latest commit is :" + str(latestCommit))
+# print("Good job! Latest commit is :" + str(latestCommit))
 commitID = commitID.decode('UTF-8').rstrip("\n")
 commitStats = commitStats.decode('UTF-8')
 
@@ -47,7 +47,7 @@ statusList = ["Commit early, commit often. A tip for version controlling, not fo
 # initialize api
 api = create_api()
 
-tweet = '[%s]\n %s P2#TLC: %s \n#GitCommitShow #CommitEveryday #100DaysOfCode #thenerdsuperuser' % (commitID, statusList[randint(0, 16)] , commitStats)
+tweet = '[%s]\n%s\nP2#TLC: %s\n#GitCommitShow #CommitEveryday #100DaysOfCode #thenerdsuperuser #loopsync' % (commitID, statusList[randint(0, 16)] , commitStats)
 
 api.update_status(tweet)
 
